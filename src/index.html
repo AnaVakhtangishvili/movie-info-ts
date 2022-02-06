@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <main>
+    <h1>Get Movie Info</h1>
+    <div class="form-container">
+      <form action="movie.php" method="get" autocomplete="off">
+        <input type="search" id="write-title" placeholder="Write Movie Title Here" name="srch">
+        <button id="movie-search-btn">Search</button>
+      </form>
+      <div class="info-container">
+        <p>movie title: <span id="movie-title"></span></p>
+        <p>movie released: <span id="release-year"></span></p>
+        <p>cast: <span id="movie-actors"></span></p>
+        <p>counrty: <span id="country-name"></span></p>
+        <div id="flag-currency">
+          <!-- flag img, currency -->
+        </div>
+      </div>
+    </div>
+    <div class="population-sum">
+      <h2>sum of populations and runtimes</h2>
+      <form action="counrty.php" method="get">
+        <input type="search" id="input-srch1" class="inpt" placeholder="Write Movie Title Here" name="movie1">
+        <input type="search" id="input-srch2" class="inpt" placeholder="Write Movie Title Here" name="movie2">
+        <input type="search" id="input-srch3" class="inpt" placeholder="Write Movie Title Here" name="movie3">
+        <button id="population-search-btn">Search</button>
+      </form>
+      <div class="info-container" id="population-and-runtime-sum">
+        <p>runtime sum: <span id="show-runtime"></span></p>
+        <p>population sum: <span id="show-population"></span></p>
+      </div>
+    </div>
+    
+  </main>
+</body>
+</html>
