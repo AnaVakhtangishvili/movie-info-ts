@@ -1,8 +1,8 @@
 import { omdbApiKey, apiUrl, countryApi } from "./first";
 
 const inputs = document.querySelectorAll<HTMLInputElement>("input.inpt");
-const showRuntime = document.getElementById("show-runtime") as HTMLInputElement;
-const showPopulation = document.getElementById("show-population") as HTMLInputElement;
+const showRuntime = document.getElementById("show-runtime") as HTMLElement;
+const showPopulation = document.getElementById("show-population") as HTMLElement;
 export let runtimesArr: string[] = [];
 export let populationArr: string[] = [];
 let countriesArr: string[] = [];

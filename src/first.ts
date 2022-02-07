@@ -1,9 +1,9 @@
 const inpt = document.getElementById("write-title") as HTMLInputElement;
-const movieTitle = document.getElementById("movie-title") as HTMLInputElement;
-const releaseYear = document.getElementById("release-year") as HTMLInputElement;
-const movieActors = document.getElementById("movie-actors") as HTMLInputElement;
-const countryName = document.getElementById("country-name") as HTMLInputElement;
-const flagCurrency = document.getElementById("flag-currency") as HTMLInputElement;
+const movieTitle = document.getElementById("movie-title") as HTMLElement;
+const releaseYear = document.getElementById("release-year") as HTMLElement;
+const movieActors = document.getElementById("movie-actors") as HTMLElement;
+const countryName = document.getElementById("country-name") as HTMLElement;
+const flagCurrency = document.getElementById("flag-currency") as HTMLElement;
 const date = new Date();
 const currentYear = date.getFullYear();
 
