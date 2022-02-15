@@ -1,7 +1,7 @@
 import "./style.css";
-import { getMovieInfo, flagCurrency } from "./first";
-import { runtimeAndPopulation } from "./second";
-import importedVariable = require("./second");
+import { getMovieInfo, flagCurrency } from "./currency";
+import { runtimeAndPopulation } from "./population";
+import importedVariable = require("./population");
 
 const movieSearchBnt = document.getElementById("movie-search-btn") as HTMLButtonElement;
 const sumSearchBtn = document.getElementById("population-search-btn") as HTMLButtonElement;

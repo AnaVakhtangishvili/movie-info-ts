@@ -11,6 +11,12 @@ const omdbApiKey = "f6a5b808";
 const apiUrl = `http://www.omdbapi.com/?&apikey=${omdbApiKey}&t=`;
 const countryApi = `https://restcountries.com/v3.1/name/`;
 
+interface Movie {
+  name: string;
+  year: string;
+  cast: string;
+  countries: string;
+}
 
 async function getMovieInfo() {
   try {
@@ -19,10 +25,16 @@ async function getMovieInfo() {
     const response = await fetch(omdbApiUrl);
     const jsonData = await response.json();
     const { Title, Year, Actors, Country } = jsonData;
-    movieTitle.innerText = Title;
-    releaseYear.innerHTML = (currentYear == Year) ? `This Year` : `${currentYear - Year} years ago`;
-    movieActors.innerHTML = actorsNames(Actors);
-    countryName.innerHTML = Country;
+    const movie: Movie = {
+      name: Title,
+      year: (currentYear == Year) ? `This Year` : `${currentYear - Year} years ago`,
+      cast: actorsNames(Actors),
+      countries: Country
+    }
+    movieTitle.innerText = movie.name;
+    releaseYear.innerHTML = movie.year;
+    movieActors.innerHTML = movie.cast;
+    countryName.innerHTML = movie.countries;
     const arrOfcountry = Country.split(",");
     getFlagAndCurrency(arrOfcountry);
   } catch (error) {
@@ -59,4 +71,4 @@ async function getFlagAndCurrency(arr: string[]) {
   }
 }
 
-export { getMovieInfo,getFlagAndCurrency, flagCurrency, omdbApiKey, apiUrl, countryApi };
+export { getMovieInfo, getFlagAndCurrency, flagCurrency, omdbApiKey, apiUrl, countryApi };

@@ -1,4 +1,4 @@
-import { omdbApiKey, apiUrl, countryApi } from "./first";
+import { omdbApiKey, apiUrl, countryApi } from "./currency";
 
 const inputs = document.querySelectorAll<HTMLInputElement>("input.inpt");
 const showRuntime = document.getElementById("show-runtime") as HTMLElement;
@@ -6,6 +6,11 @@ const showPopulation = document.getElementById("show-population") as HTMLElement
 export let runtimesArr: string[] = [];
 export let populationArr: string[] = [];
 let countriesArr: string[] = [];
+
+interface NeededInfo {
+  runtime: string;
+  country: string;
+}
 
 async function runtimeAndPopulation() {
   try {
@@ -15,14 +20,18 @@ async function runtimeAndPopulation() {
       const response = await fetch(omdbApiUrl);
       const jsonData = await response.json();
       const { Runtime, Country } = jsonData;
+      const neededInfo: NeededInfo = {
+        runtime: Runtime,
+        country: Country
+      }
       // runtime
       inputs[i].value.length == 0
         ? runtimesArr.push("0")
-        : runtimesArr.push(Runtime);
+        : runtimesArr.push(neededInfo.runtime);
       // country
       inputs[i].value.length == 0
         ? countriesArr.push("")
-        : countriesArr.push(Country);
+        : countriesArr.push(neededInfo.country);
     }
     // runtime result
     const runtimeSum = runtimesArr.reduce((acc, curr) => {
